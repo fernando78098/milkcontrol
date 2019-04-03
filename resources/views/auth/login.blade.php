@@ -7,7 +7,7 @@
 
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
 		<link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
 
 		<!-- vector map CSS -->

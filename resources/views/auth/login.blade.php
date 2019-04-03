@@ -1,73 +1,116 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>Ctrl Milk</title>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+		<!-- vector map CSS -->
+		<link href="{{ asset('vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+		<!-- Custom CSS -->
+    <link href="{{ asset('dist/css/style.css') }}" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<!--Preloader-->
+		<div class="preloader-it">
+			<div class="la-anim-1"></div>
+		</div>
+		<!--/Preloader-->
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+		<div class="wrapper box-layout pa-0">
+			<header class="sp-header">
+				<div class="sp-logo-wrap pull-left">
+					<a href="{{ route('login') }}">
+                    <img class="brand-img mr-10" src="{{ asset('img/logo.png') }}" alt="brand"/>
+						<span class="brand-text">Ctrl Milk</span>
+					</a>
+				</div>
+				<div class="form-group mb-0 pull-right">
+					<span class="inline-block pr-10">Não tem uma conta?</span>
+					<a class="inline-block btn btn-primary  btn-rounded" href="{{ route('register') }}">Cadastrar</a>
+				</div>
+				<div class="clearfix"></div>
+			</header>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+			<!-- Main Content -->
+			<div class="page-wrapper pa-0 ma-0 auth-page">
+				<div class="container-fluid">
+					<!-- Row -->
+					<div class="table-struct full-width full-height">
+						<div class="table-cell vertical-align-middle auth-form-wrap">
+							<div class="auth-form  ml-auto mr-auto no-float card-view pt-30 pb-30">
+								<div class="row">
+									<div class="col-sm-12 col-xs-12">
+										<div class="mb-30">
+											<h3 class="text-center txt-dark mb-10">Ctrl Milk</h3>
+											<h6 class="text-center nonecase-font txt-grey">Aréa de acesso</h6>
+										</div>
+										<div class="form-wrap">
+                                            <form method="POST" action="{{ route('login') }}">
+                                                @csrf
+												<div class="form-group">
+                                                    <label class="control-label mb-10" for="exampleInputEmail_2">Usuario</label>
+                                                    <select class="form-control" name="email">
+                                                        <option value="luiz@luiz.com.br">luiz@luiz.com.br</option>
+                                                        <option value="rita@rita.com.br">rita@rita.com.br</option>
+                                                        <option value="sandro@sandro.com.br">sandro@sandro.com.br</option>
+                                                        <option value="lucas@lucas.com.br">lucas@lucas.com.br</option>
+                                                      </select>
+												</div>
+												<div class="form-group">
+													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Senha</label>
+													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="{{ route('password.request') }}">Esqueceu a senha ?</a>
+													<div class="clearfix"></div>
+													<input type="password" class="form-control" name="password" required="" id="exampleInputpwd_2" placeholder="Senha">
+												</div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+												<div class="form-group">
+													<div class="checkbox checkbox-primary pr-10 pull-left">
+														<input   type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+														<label for="checkbox_2"> Mantenha-me conectado</label>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group text-center">
+													<button type="submit" class="btn btn-primary  btn-rounded">Entrar</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Row -->
+				</div>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+			</div>
+			<!-- /Main Content -->
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+		</div>
+		<!-- /#wrapper -->
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+		<!-- JavaScript -->
+
+		<!-- jQuery -->
+		<script src=" {{ asset('vendors/bower_components/jquery/dist/jquery.min.js') }} "></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src=" {{ asset('vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }} "></script>
+		<script src=" {{ asset('vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') }} "></script>
+
+		<!-- Slimscroll JavaScript -->
+		<script src=" {{ asset('dist/js/jquery.slimscroll.js') }} "></script>
+
+		<!-- Init JavaScript -->
+		<script src=" {{ asset('dist/js/init.js') }} "></script>
+	</body>
+</html>

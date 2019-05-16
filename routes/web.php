@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/login', 301);
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/leite' , 'LeiteController' );
+Route::post('/leite_relatorio' , 'LeiteController@leite' )->name('relatorio');
+Route::post('/grava_leite_lote' , 'LeiteController@gravaleite' )->name('gravaleitelote');
+Route::get('/lançamento_leite_lote' , 'LeiteController@leitelote' )->name('lancamentoleitelote'); 

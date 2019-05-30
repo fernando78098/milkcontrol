@@ -31,7 +31,7 @@
 			<div class="mobile-only-brand pull-left">
 				<div class="nav-header pull-left">
 					<div class="logo-wrap">
-						<a href="index.html">
+						<a href="{{ route('home') }}">
 							<img class="brand-img" src="../img/logo.png" alt="brand"/>
 							<span class="brand-text">Ctrl Milk</span>
 						</a>
@@ -405,29 +405,27 @@
 					</ul>
 				</li>
 				<li>
-					<a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Mamite</span></div><div class="pull-right"><span class="label label-success">7</span></div><div class="clearfix"></div></a>
+					<a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Cultura Micro</span></div><div class="pull-right"><span class="label label-success"></span></div><div class="clearfix"></div></a>
 					<ul id="ecom_dr" class="collapse collapse-level-1">
 						<li>
-							<a href="e-commerce.html">Dashboard</a>
+							<a href="{{ action('MicroController@create') }}">Cadastro Animais</a>
 						</li>
 						<li>
-							<a href="product.html">Products</a>
+							<a href="{{ action('MicroController@index') }}">Editar Animais</a>
 						</li>
 						<li>
-							<a href="product-detail.html">Product Detail</a>
+							<a href="{{ action('ColetaController@index') }}">Coleta Leite</a>
 						</li>
 						<li>
-							<a href="add-products.html">Add Product</a>
+							<a href="product-detail.html">Cultura</a>
 						</li>
 						<li>
-							<a href="product-orders.html">Orders</a>
+							<a href="add-products.html">Resultado</a>
 						</li>
 						<li>
-							<a href="product-cart.html">Cart</a>
+							<a href="product-orders.html">Zerar sistema</a>
 						</li>
-						<li>
-							<a href="product-checkout.html">Checkout</a>
-						</li>
+						
 					</ul>
 				</li>
 				
@@ -900,7 +898,15 @@
     <script src=" {{ asset('vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }} "></script>
 
 	<!-- Data table JavaScript -->
-	<script src=" {{ asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js') }} "></script>
+	
+	<script src="{{ asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+	<script src="{{ asset('vendors/bower_components/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+	<script src="{{ asset('vendors/bower_components/jszip/dist/jszip.min.js') }}"></script>
+	<script src="{{ asset('vendors/bower_components/pdfmake/build/pdfmake.min.js') }}"></script>
+	<script src="{{ asset('vendors/bower_components/pdfmake/build/vfs_fonts.js') }}"></script>	
+	<script src="{{ asset('vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src=" {{ asset('dist/js/export-table-data.js') }} "></script>
 
 	<!-- Slimscroll JavaScript -->
 	<script src=" {{ asset('dist/js/jquery.slimscroll.js') }} "></script>

@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<title>Ctrl Milk</title>
-	
-	
+
+
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
 	<link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
-	
+
 	<!-- Data table CSS -->
 	<link href=" {{ asset('vendors/bower_components/datatables/media/css/jquery.dataTables.min.css') }} " rel="stylesheet" type="text/css"/>
 
-	
+
 
 	<!-- Custom CSS -->
 	<link href=" {{ asset('dist/css/style.css') }} " rel="stylesheet" type="text/css">
@@ -21,12 +21,12 @@
 
 <body>
 
-	
-	
+
+
 
         <!-- Main content -->
     <section class="content">
-        <center><div class="row"> 
+        <center><div class="row">
             <!-- left column -->
             <div class="col-md-6 col-xs-12">
             <!-- general form elements -->
@@ -47,6 +47,10 @@
                                 <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
                                 <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
                                 <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
+                                <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
+                                <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
+                                <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
+                                <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
 
                             </div>
                             <div class="form-group col-md-4 col-xs-4">
@@ -59,10 +63,19 @@
                                 <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
                                 <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
                                 <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+                                <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+                                <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+                                <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+                                <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+
 
                             </div>
                             <div class="form-group col-md-4 col-xs-4">
                                 <label >Lote</label>
+                                <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
+                                <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
+                                <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
+                                <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
                                 <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
                                 <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
                                 <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
@@ -87,6 +100,10 @@
                                 <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
                                 <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
                                 <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
+                                <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
+                                <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
+                                <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
+                                <input type="number" class="form-control"  placeholder="Vaca" name="vaca[]">
 
                             </div>
                             <div class="form-group col-md-4 col-xs-4">
@@ -99,10 +116,18 @@
                                 <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
                                 <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
                                 <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+                                <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+                                <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+                                <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
+                                <input type="number" class="form-control"  placeholder="LEITE" name="leite[]" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
 
                             </div>
                             <div class="form-group col-md-4 col-xs-4">
                                 <label >Lote</label>
+                                <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
+                                <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
+                                <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
+                                <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
                                 <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
                                 <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
                                 <input type="number" class="form-control"  placeholder="Lote" name="lote[]">
@@ -130,19 +155,19 @@
         </div>
       <!-- /.row -->
     </section>
-				
-			
-			
-		
-			
+
+
+
+
+
 		</div>
         <!-- /Main Content -->
 
-   
+
     <!-- /#wrapper -->
-	
+
 	<!-- JavaScript -->
-	
+
     <!-- jQuery -->
     <script src=" {{ asset('vendors/bower_components/jquery/dist/jquery.min.js') }} "></script>
 

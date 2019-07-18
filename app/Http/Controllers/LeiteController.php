@@ -15,25 +15,25 @@ class LeiteController extends Controller
      */
     public function index()
     {
-       
+
         return view('leite.data');
     }
 
     public function leite(Request $request,leite $leite )
     {
         $dados = $request->all();
- 
-        if ($dados['turno'] == "noite") 
+
+        if ($dados['turno'] == "noite")
         {
             $dadosss = ++$dado['data'];
             $relatorio = DB::table('leites')->select('vaca', 'turno', 'leite', 'data')->where('data', $dados['data'])->where('data', $dadosss)->where('turno',$dados['turno'])->get();
-            
-            
+
+
             $data = $relatorio['0']->data;
             $datas = date('d-m-Y', strtotime($data));
             $turno = $relatorio['0']->turno;
-            $final = "$datas  $turno"; 
-            
+            $final = "$datas  $turno";
+
             return view('leite.relatorio',compact('relatorio','data', 'final'));
         }else
         {
@@ -49,7 +49,7 @@ class LeiteController extends Controller
 
         }
 
-        
+
     }
 
     /**
@@ -76,7 +76,7 @@ class LeiteController extends Controller
         $turno_noite_inicio = date_format(date_create('20:00'), 'H:i');
         $turno_noite_fim = date_format(date_create('00:00'), 'H:i');
         $horaAtual = date('H:i');
-        
+
 
         if ($horaAtual >= $turno_manha_inicio && $horaAtual <= $turno_manha_fim) {
             $turno = 'manha';
@@ -92,7 +92,8 @@ class LeiteController extends Controller
 
         $dados = $request->all();
         $dadosfiltrado = array_filter($dados['vaca']);
-        
+
+
 
 
 
@@ -139,8 +140,8 @@ class LeiteController extends Controller
 
         $dados = $request->all();
         $dadosfiltrado = array_filter($dados['vaca']);
-        
-        
+
+
 
 
 

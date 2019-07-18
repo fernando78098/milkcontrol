@@ -40,20 +40,123 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">COLETA LEITE</h3>
                     </div>
-                        <div class="box-body">
-                            <div class="form-group col-md-4 col-xs-12">
+
+                    <thead>
+                        <tr>
+                            <th>Vaca</th>
+                            <th>Leite</th>
+                            <th>Turno</th>
+                            <th>Data</th>
+
+                        </tr>
+                    </thead>
+
+
+						<div class="box-body">
+							<div class="form-group col-md-3 col-xs-12">
                                 <label>VACA</label>
-                            </div>
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
+                                @for ($i = 0; $i < $total_vacas; $i++)
+
+                                    <input type="text" class="form-control" value=" {{ $vaca['vaca'][$i] }} " placeholder="N° BRINCO" name="vaca[]">
+
+                                @endfor
+
+							</div>
 
                         </div>
+
+
+
+
+
+
+
+
+						<div class="box-body">
+                            <div class="form-group col-md-2 col-xs-12">
+                                <label>AE</label>
+                                @for ($i = 0; $i < $total_vacas; $i++)
+
+                                    @if (in_array($vaca['vaca'][$i], $set))
+
+                                        <input type="hidden" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+
+                                    @else
+
+
+                                        <input type="text" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+                                    @endif
+
+                                @endfor
+
+                            </div>
+
+                        </div>
+						<div class="box-body">
+                            <div class="form-group col-md-2 col-xs-12">
+                            <label>AD</label>
+                            @for ($i = 0; $i < $total_vacas; $i++)
+
+                                    @if (in_array($vaca['vaca'][$i], $set))
+
+                                        <input type="hidden" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+
+                                    @else
+
+
+                                        <input type="text" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+                                    @endif
+
+                                @endfor
+
+
+
+                        </div>
+						<div class="box-body">
+                            <div class="form-group col-md-2 col-xs-12">
+                            <label>PE</label>
+                            @for ($i = 0; $i < $total_vacas; $i++)
+
+                                    @if (in_array($vaca['vaca'][$i], $set))
+
+                                        <input type="hidden" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+
+                                    @else
+
+                                        <input type="text" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+                                    @endif
+
+                                @endfor
+
+
+                        </div>
+						<div class="box-body">
+                            <div class="form-group col-md-3 col-xs-12">
+                            <label>PD</label>
+                            @for ($i = 0; $i < $total_vacas; $i++)
+
+                                    @if (in_array($vaca['vaca'][$i], $set))
+
+                                        <input type="hidden" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+
+                                    @else
+
+                                        <input type="text" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+                                    @endif
+
+                                @endfor
+
+
+                        </div>
+
                         <div class="box-footer col-md-12">
 
                             <button type="submit" class="btn btn-primary">Procurar</button>

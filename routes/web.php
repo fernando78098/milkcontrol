@@ -28,4 +28,4 @@ Route::delete('/micro/{id}', 'MicroController@destroy');
 
 Route::resource('/coleta' , 'ColetaController' );
 Route::delete('/coleta/{id}', 'ColetaController@destroy');
-Route::post('/coletado' , 'ColetaController@coletado' )->name('coletado');
+Route::post('/coletado' , 'ColetaController@coletado' )->name('coletado'); 

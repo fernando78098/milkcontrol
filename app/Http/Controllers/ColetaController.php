@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\coleta;
+use App\micro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ColetaController extends Controller
 {
@@ -19,7 +21,38 @@ class ColetaController extends Controller
 
     public function coletado(Request $request)
     {
-        dd($request);
+        /** Recupera todos animais na ordenha  */
+        $vaca = $request->all();
+
+
+        //** Recupera todas vacas cadastradas */
+        $vaca_cadastradas = DB::table('micros')->select('vaca')->get();
+
+        //** Total Vacas Cadastradas */
+       $total_cadastradas = count($vaca_cadastradas);
+       //** Convertendo dados do banco em um array */
+       $set = array();
+
+       for ($i=0; $i < $total_cadastradas ; $i++) {
+           $set[$i] = $vaca_cadastradas[$i]->vaca;
+
+       }
+        /** faz um array somente do numero das vacas dentro da ordenha  */
+        $total_vacas_ordenha = array_filter($vaca['vaca']);
+
+        //** Conta quantas vacas tem na ordenha  */
+        $total_vacas = count($total_vacas_ordenha);
+
+
+
+
+
+
+
+
+
+        return view('coleta.form_coleta_amostra', compact('vaca','total_vacas','set'));
+
     }
 
     /**
@@ -29,7 +62,7 @@ class ColetaController extends Controller
      */
     public function create(Request $request)
     {
-        dd($request);
+
     }
 
     /**

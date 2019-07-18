@@ -24,12 +24,8 @@
 
 
 
-        <!-- Main Content -->
-		<div class="page-wrapper">
-            <div class="container-fluid pt-25">
-
-			<!-- Main content -->
-<section class="content">
+        <!-- Main content -->
+    <section class="content">
         <center><div class="row">
             <!-- left column -->
             <div class="col-md-6 col-xs-12">
@@ -38,25 +34,76 @@
                 <form action=" {{ route('coletado') }} " method="POST" >
                     @csrf
                     <div class="box-header with-border">
-                        <h3 class="box-title">COLETA LEITE</h3>
+                        <h3 class="box-title">Coleta De Leite</h3>
                     </div>
                         <div class="box-body">
-                            <div class="form-group col-md-4 col-xs-12">
-                                <label>VACA</label>
-                            </div>
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
-                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
+                            @for ($i = 0; $i < $total_vacas; $i++)
+                                <div class="form-group col-md-4 col-xs-4">
+                                    <label>VACA</label>
+                                    <input type="number" class="form-control" value=" {{ $vaca['vaca'][$i] }} " placeholder="N° BRINCO" name="vaca[]">
+                                </div>
+                                <div class="form-group col-md-2 col-xs-4">
+                                    <label >AE</label>
+                                    @if (in_array($vaca['vaca'][$i], $set))
 
+                                        <input type="number" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
+
+                                    @else
+
+                                        <input style="display:none;" type="text" class="form-control" value="Sem Registro" placeholder="N°" name="coleta_ae[]">
+
+                                    @endif
+
+                                </div>
+                                <div class="form-group col-md-2 col-xs-4">
+                                    <label >AD</label>
+                                    @if (in_array($vaca['vaca'][$i], $set))
+
+                                        <input type="number" class="form-control" value="  " placeholder="N°" name="coleta_ad[]">
+
+                                    @else
+
+                                        <input style="display:none;" type="text" class="form-control" value="Sem Registro" placeholder="N°" name="coleta_ad[]">
+
+                                    @endif
+
+                                </div>
+                                <div class="form-group col-md-2 col-xs-4">
+                                        <label >PE</label>
+                                        @if (in_array($vaca['vaca'][$i], $set))
+
+                                            <input type="number" class="form-control" value="  " placeholder="N°" name="coleta_pe[]">
+
+                                        @else
+
+                                            <input style="display:none;" type="text" class="form-control" value="Sem Registro" placeholder="N°" name="coleta_pe[]">
+
+                                        @endif
+
+                                    </div>
+                                    <div class="form-group col-md-2 col-xs-4">
+                                            <label >PD</label>
+                                            @if (in_array($vaca['vaca'][$i], $set))
+
+                                                <input type="number" class="form-control" value="  " placeholder="N°" name="coleta_pd[]">
+
+                                            @else
+
+                                                <input style="display:none;" type="text" class="form-control" value="Sem Registro" placeholder="N°" name="coleta_pd[]">
+
+                                            @endif
+
+                                    </div>
+                            @endfor
                         </div>
-                        <div class="box-footer col-md-12">
 
-                            <button type="submit" class="btn btn-primary">Procurar</button>
+
+
+
+
+                        <div class="box-footer">
+
+                            <button type="submit" class="btn btn-primary">SALVAR</button>
 
                         </div>
                 </form>
@@ -66,17 +113,9 @@
       <!-- /.row -->
     </section>
 
-			</div>
 
-			<!-- Footer -->
-			<footer class="footer container-fluid pl-30 pr-30">
-				<div class="row">
-					<div class="col-sm-12">
-						<p>2019 &copy; Luiz Fernando - 35 997296516  - <b>Versão</b> 2.0</p>
-					</div>
-				</div>
-			</footer>
-			<!-- /Footer -->
+
+
 
 		</div>
         <!-- /Main Content -->

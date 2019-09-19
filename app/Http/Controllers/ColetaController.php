@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\coleta;
-use App\micro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,8 +24,11 @@ class ColetaController extends Controller
         $vaca = $request->all();
 
 
+
         //** Recupera todas vacas cadastradas */
         $vaca_cadastradas = DB::table('micros')->select('vaca')->get();
+
+
 
         //** Total Vacas Cadastradas */
        $total_cadastradas = count($vaca_cadastradas);
@@ -40,6 +42,11 @@ class ColetaController extends Controller
         /** faz um array somente do numero das vacas dentro da ordenha  */
         $total_vacas_ordenha = array_filter($vaca['vaca']);
 
+
+
+
+
+
         //** Conta quantas vacas tem na ordenha  */
         $total_vacas = count($total_vacas_ordenha);
 
@@ -51,7 +58,7 @@ class ColetaController extends Controller
 
 
 
-        return view('coleta.form_coleta_amostra', compact('vaca','total_vacas','set'));
+        return view('coleta.form_coleta_amostra', compact('vaca','total_vacas','set', 'total_vacas_ordenha'));
 
     }
 
@@ -62,6 +69,23 @@ class ColetaController extends Controller
      */
     public function create(Request $request)
     {
+        $dados = $request->all();
+        $dadosfiltrado = array_filter($dados['vaca']);
+
+
+        for ($i=0; $i < count($dadosfiltrado) ; $i++) {
+
+            DB::insert("INSERT INTO coletas (micro_id, coleta_ae, coleta_ad, coleta_pe, coleta_pd ) values (?, ?, ?, ?, ?)", [$dados['vaca'][$i],$dados['coleta_ae'][$i],$dados['coleta_ad'][$i],$dados['coleta_pe'][$i],$dados['coleta_pd'][$i]]);
+
+        }
+
+        return redirect('/coleta');
+
+
+
+
+
+
 
     }
 
@@ -71,6 +95,11 @@ class ColetaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function result(coleta $coleta)
+    {
+        $relatorio = $coleta->all();
+        return view('coleta.resultado_coleta', compact('relatorio'));
+    }
     public function store(Request $request)
     {
         //
@@ -84,7 +113,7 @@ class ColetaController extends Controller
      */
     public function show(coleta $coleta)
     {
-        //
+       //
     }
 
     /**

@@ -25,7 +25,7 @@ class LeiteController extends Controller
 
         if ($dados['turno'] == "noite")
         {
-            $dadosss = ++$dado['data'];
+            $dadosss = ++$dados['data'];
             $relatorio = DB::table('leites')->select('vaca', 'turno', 'leite', 'data')->where('data', $dados['data'])->where('data', $dadosss)->where('turno',$dados['turno'])->get();
 
 

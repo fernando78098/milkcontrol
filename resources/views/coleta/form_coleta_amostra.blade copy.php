@@ -31,41 +31,32 @@
             <div class="col-md-6 col-xs-12">
             <!-- general form elements -->
             <div class="box box-primary">
-                <form action=" {{ action('ColetaController@create') }} " method="POST" >
+                <form action=" {{ route('coletado') }} " method="POST" >
                     @csrf
                     <div class="box-header with-border">
                         <h3 class="box-title">Coleta De Leite</h3>
                     </div>
                         <div class="box-body">
                             @for ($i = 0; $i < $total_vacas; $i++)
-                                <div class="row row-no-gutters">
-                                    <div class="form-group col-md-3 col-xs-3" style="">
+                                <div class="row">
+                                    <div class="form-group col-sm-1 col-md-4">
                                         <label>VACA</label>
-                                        @if (in_array($vaca['vaca'][$i], $set))
-
-                                            <input type="number" class="form-control" value="{{ $vaca['vaca'][$i] }}" placeholder="N° BRINCO" name="vaca[]">
-
-                                        @else
-
-                                            <input type="number" class="form-control" value="{{ $vaca['vaca'][$i] }}" placeholder="N° BRINCO" name="vaca[]" disabled="disabled">
-
-                                        @endif
-
+                                        <input type="number" class="form-control" value=" {{ $vaca['vaca'][$i] }} " placeholder="N° BRINCO" name="vaca[]">
                                     </div>
-                                    <div class="form-group col-md-2 col-xs-2" style="padding:2px;">
+                                    <div class="form-group col-md-2 col-sm-1">
                                         <label >a.e</label>
                                         @if (in_array($vaca['vaca'][$i], $set))
 
-                                            <input type="number" class="form-control" value="" placeholder="N°" name="coleta_ae[]">
+                                            <input type="number" class="form-control" value="  " placeholder="N°" name="coleta_ae[]">
 
                                         @else
 
-                                            <input style="display:none;" type="text" class="form-control" value="" placeholder="N°" name="coleta_ae[]" disabled="disabled">
+                                            <input style="display:none;" type="text" class="form-control" value="Sem Registro" placeholder="N°" name="coleta_ae[]">
 
                                         @endif
 
                                     </div>
-                                    <div class="form-group col-md-2 col-xs-2" style="padding:2px;">
+                                    <div class="form-group col-md-2 col-sm-1">
                                         <label >a.d</label>
                                         @if (in_array($vaca['vaca'][$i], $set))
 
@@ -73,12 +64,12 @@
 
                                         @else
 
-                                            <input style="display:none;" type="text" class="form-control" value="" placeholder="N°" name="coleta_ad[]" disabled="disabled">
+                                            <input style="display:none;" type="text" class="form-control" value="Sem Registro" placeholder="N°" name="coleta_ad[]">
 
                                         @endif
 
                                     </div>
-                                    <div class="form-group col-md-2 col-xs-2" style="padding:2px;">
+                                    <div class="form-group col-md-2 col-sm-1">
                                             <label >p.e</label>
                                             @if (in_array($vaca['vaca'][$i], $set))
 
@@ -86,12 +77,12 @@
 
                                             @else
 
-                                                <input style="display:none;" type="text" class="form-control" value="" placeholder="N°" name="coleta_pe[]" disabled="disabled">
+                                                <input style="display:none;" type="text" class="form-control" value="Sem Registro" placeholder="N°" name="coleta_pe[]">
 
                                             @endif
 
                                     </div>
-                                    <div class="form-group col-md-2 col-xs-2" style="padding:2px;">
+                                    <div class="form-group col-md-2 col-sm-1">
                                             <label >p.d</label>
                                             @if (in_array($vaca['vaca'][$i], $set))
 
@@ -99,7 +90,7 @@
 
                                             @else
 
-                                                <input style="display:none;" type="text" class="form-control" value="" placeholder="N°" name="coleta_pd[]" disabled="disabled">
+                                                <input style="display:none;" type="text" class="form-control" value="Sem Registro" placeholder="N°" name="coleta_pd[]">
 
                                             @endif
 

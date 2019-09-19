@@ -52,6 +52,10 @@
                             <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
                             <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
                             <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
+                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
+                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
+                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
+                            <input type="number" class="form-control"  placeholder="N° BRINCO" name="vaca[]">
 
                         </div>
                         <div class="box-footer col-md-12">

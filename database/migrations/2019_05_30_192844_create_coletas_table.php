@@ -15,7 +15,7 @@ class CreateColetasTable extends Migration
     {
         Schema::create('coletas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('micro_id');           
+            $table->unsignedBigInteger('micro_id');
             $table->foreign('micro_id')
             ->references('id')->on('micros')
             ->onDelete('cascade');

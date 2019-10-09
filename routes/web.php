@@ -31,3 +31,9 @@ Route::post('/coleta_feita' , 'ColetaController@create' )->name('coleta_feita');
 Route::delete('/coleta/{id}', 'ColetaController@destroy');
 Route::post('/coletado' , 'ColetaController@coletado' )->name('coletado');
 Route::get('/coleta_resultado' , 'ColetaController@result' )->name('resultado');
+
+
+Route::resource('/tratamentos' , 'TratamentoController' );
+
+Route::resource('/procedimentos' , 'ProcedimentoController' );
+Route::post('/idenfificacao' , 'ProcedimentoController@procurar' )->name('procurando');

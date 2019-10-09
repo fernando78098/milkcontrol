@@ -16,10 +16,10 @@ class MicroController extends Controller
     public function index( micro $micro)
     {
       $relatorio = $micro->all();
-        
+
 
         return view('micro.relatorio_micro', compact('relatorio'));
-        
+
     }
 
     /**
@@ -73,7 +73,7 @@ class MicroController extends Controller
     public function edit($id)
     {
         $dado = \App\micro::find($id);
-        
+
         return view('micro.editar_form_micro', compact('dado' , 'id'));
     }
 

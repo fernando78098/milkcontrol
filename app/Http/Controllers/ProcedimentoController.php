@@ -99,9 +99,7 @@ class ProcedimentoController extends Controller
 
         for($i=0; $i < $total_cadastradas; $i++)
         {
-            if ($set['vaca' = ]) {
-                # code...
-            }
+            
 
         };
 

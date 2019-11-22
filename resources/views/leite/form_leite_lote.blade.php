@@ -29,9 +29,14 @@
         <center><div class="row">
             <!-- left column -->
             <div class="col-md-6 col-xs-12">
+                    @if($errors->any())
+                    @foreach($errors->all() as $error)      {{ $error }} @endforeach 
+                @elseif(session()->has('success'))
+                      {{ session('success') }}
+                @endif
             <!-- general form elements -->
             <div class="box box-primary">
-                <form action=" {{ route('gravaleitelote') }} " method="POST" >
+                <form action=" {{ action('LeiteController@store') }} " method="POST" >
                     @csrf
                     <div class="box-header with-border">
                         <h3 class="box-title">PESAGEM LEITE</h3>

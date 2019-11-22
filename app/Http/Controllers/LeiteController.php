@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\leite;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
 class LeiteController extends Controller
@@ -59,7 +61,7 @@ class LeiteController extends Controller
      */
     public function create()
     {
-        return view('leite.form');
+        return view('leite.form_leite_lote');
     }
 
     public function leitelote()
@@ -69,6 +71,20 @@ class LeiteController extends Controller
 
     public function gravaleite(Request $request,leite $leite)
     {
+        // aqui passamos os dados do nosso formulario para o validator no primeiro parametro e no segundo algumas regras de validação
+        $validator = Validator::make($request->all(), [
+            'vaca.*' => 'nullable|min:3|max:5',
+            'leite.*' => 'nullable|required_if:vaca.*,empty|min:3|max:3',
+            'lote.*' => 'nullable|required_if:vaca.*,empty|min:1|max:1',
+]);
+        // se o validator falhar, a gente cria um direcionamento direferente! E também jogamos os erros devolvidos pelo Validator de volta para nossa view.
+        if ($validator->fails()) {
+            return redirect('lançamento_leite_lote')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+      
+        
         $turno_manha_inicio = date_format(date_create('04:00'), 'H:i');
         $turno_manha_fim = date_format(date_create('11:59'), 'H:i');
         $turno_tarde_inicio = date_format(date_create('12:00'), 'H:i');
@@ -118,6 +134,20 @@ class LeiteController extends Controller
      */
     public function store(Request $request,leite $leite)
     {
+        // aqui passamos os dados do nosso formulario para o validator no primeiro parametro e no segundo algumas regras de validação
+        $validator = Validator::make($request->all(), [
+            'vaca.*' => 'nullable|min:3|max:5',
+            'leite.*' => 'nullable|required_if:vaca.*,empty|min:3|max:4',
+            'lote.*' => 'nullable|required_if:vaca.*,empty|min:1|max:1',
+]);
+        // se o validator falhar, a gente cria um direcionamento direferente! E também jogamos os erros devolvidos pelo Validator de volta para nossa view.
+        if ($validator->fails()) {
+            return redirect('leite/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+      
+        
         $turno_manha_inicio = date_format(date_create('04:00'), 'H:i');
         $turno_manha_fim = date_format(date_create('11:59'), 'H:i');
         $turno_tarde_inicio = date_format(date_create('12:00'), 'H:i');
@@ -125,6 +155,7 @@ class LeiteController extends Controller
         $turno_noite_inicio = date_format(date_create('20:00'), 'H:i');
         $turno_noite_fim = date_format(date_create('00:00'), 'H:i');
         $horaAtual = date('H:i');
+
 
         if ($horaAtual >= $turno_manha_inicio && $horaAtual <= $turno_manha_fim) {
             $turno = 'manha';
@@ -146,13 +177,15 @@ class LeiteController extends Controller
 
 
 
+
         for ($i=0; $i < count($dadosfiltrado) ; $i++) {
 
-            DB::insert("INSERT INTO leites (vaca, turno, leite, data ) values (?, ?, ?, ?)", [$dados['vaca'][$i],$turno,$dados['leite'][$i],date('Y-m-d')]);
+            DB::insert("INSERT INTO leites (vaca, turno, lote, leite, data ) values (?, ?, ?, ?, ?)", [$dados['vaca'][$i],$turno,$dados['lote'][$i],$dados['leite'][$i],date('Y-m-d')]);
 
         }
 
         return back()->withInput();
+        
     }
 
     /**

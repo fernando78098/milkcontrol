@@ -403,11 +403,8 @@
 					<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Pesagem de Leite</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 					<ul id="dashboard_dr" class="collapse collapse-level-1">
 						<li>
-							<a class="active-page" href="{{ action('LeiteController@create') }}">Lançamento</a>
-						</li>
-						<li>
-							<a href="{{ route('lancamentoleitelote') }}">Lançamento/Lote</a>
-						</li>
+							<a class="active-page" href="{{ action('LeiteController@create') }}">Lançamento/Lote</a>
+						</li>						
 						<li>
 							<a href="{{ action('LeiteController@index') }}">Relatorio</a>
 						</li>

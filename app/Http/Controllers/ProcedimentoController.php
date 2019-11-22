@@ -93,7 +93,19 @@ class ProcedimentoController extends Controller
             $set['massa'][$i] = $request->input('massa')[$i];
 
 
-        }
-        dd($set);
+        };
+        
+
+
+        for($i=0; $i < $total_cadastradas; $i++)
+        {
+            if ($set['vaca' = ]) {
+                # code...
+            }
+
+        };
+
+        
+        
     }
 }

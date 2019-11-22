@@ -30,6 +30,8 @@ Route::resource('/coleta' , 'ColetaController' );
 Route::post('/coleta_feita' , 'ColetaController@create' )->name('coleta_feita');
 Route::delete('/coleta/{id}', 'ColetaController@destroy');
 Route::post('/coletado' , 'ColetaController@coletado' )->name('coletado');
+Route::get('/coletado_direto' , 'ColetaController@coletado_direto' )->name('coletado_direto');
+Route::post('/coleta_direto' , 'ColetaController@coleta_direto' )->name('coleta_direto');
 Route::get('/coleta_resultado' , 'ColetaController@result' )->name('resultado');
 
 

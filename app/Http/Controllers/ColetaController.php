@@ -18,6 +18,26 @@ class ColetaController extends Controller
         return view('coleta.form');
     }
 
+    public function coletado_direto()
+    {
+        return view('coleta_direta.form');
+    }
+
+    public function coleta_direto(Request $request)
+    {
+        $dados = $request->all();
+        $dadosfiltrado = array_filter($dados['vaca']);
+
+
+        for ($i=0; $i < count($dadosfiltrado) ; $i++) {
+
+            DB::insert("INSERT INTO coletas (micro_id, coleta_ae, coleta_ad, coleta_pe, coleta_pd ) values (?, ?, ?, ?, ?)", [$dados['vaca'][$i],$dados['coleta_ae'][$i],$dados['coleta_ad'][$i],$dados['coleta_pe'][$i],$dados['coleta_pd'][$i]]);
+
+        }
+
+        return redirect('/coletado_direto');
+
+    }
     public function coletado(Request $request)
     {
         /** Recupera todos animais na ordenha  */

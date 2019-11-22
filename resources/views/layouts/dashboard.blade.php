@@ -427,6 +427,9 @@
 							<a href="{{ action('ColetaController@index') }}">Coleta Leite</a>
 						</li>
 						<li>
+							<a href="{{ route('coletado_direto') }}">Coleta Leite Direto</a>
+						</li>
+						<li>
 							<a href="product-detail.html">Cultura</a>
 						</li>
 						<li>

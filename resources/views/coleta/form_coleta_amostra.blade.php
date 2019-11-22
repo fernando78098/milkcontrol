@@ -40,7 +40,7 @@
                             @for ($i = 0; $i < $total_vacas; $i++)
                                 <div class="row row-no-gutters">
                                     <div class="form-group col-md-3 col-xs-3" style="">
-                                        <label>VACA</label>
+                                    <label>VACA - {{ $i+1 }}</label>
                                         @if (in_array($vaca['vaca'][$i], $set))
 
                                             <input type="number" class="form-control" value="{{ $vaca['vaca'][$i] }}" placeholder="N° BRINCO" name="vaca[]">

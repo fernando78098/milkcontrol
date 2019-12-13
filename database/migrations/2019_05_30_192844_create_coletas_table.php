@@ -15,14 +15,11 @@ class CreateColetasTable extends Migration
     {
         Schema::create('coletas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('micro_id');
-            $table->foreign('micro_id')
-            ->references('id')->on('micros')
-            ->onDelete('cascade');
-            $table->string('coleta_ae');
-            $table->string('coleta_ad');
-            $table->string('coleta_pe');
-            $table->string('coleta_pd');
+            $table->string('micro_id');            
+            $table->string('coleta_ae')->nullable();;
+            $table->string('coleta_ad')->nullable();;
+            $table->string('coleta_pe')->nullable();;
+            $table->string('coleta_pd')->nullable();;
             $table->timestamps();
         });
     }

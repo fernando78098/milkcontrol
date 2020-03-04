@@ -68,6 +68,7 @@
 														<option value="rita@rita.com.br">Rita</option>
 														<option value="sandro@sandro.com.br">Sandro</option>
 														<option value="lucas@lucas.com.br">Lucas</option>
+														<option value="mariana@mariana.com.br">Mariana</option>
 													</select>
 												</div>
 												<div class="form-group">

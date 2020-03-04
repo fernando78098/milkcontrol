@@ -16,10 +16,10 @@ class CreateColetasTable extends Migration
         Schema::create('coletas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('micro_id');            
-            $table->string('coleta_ae')->nullable();;
-            $table->string('coleta_ad')->nullable();;
-            $table->string('coleta_pe')->nullable();;
-            $table->string('coleta_pd')->nullable();;
+            $table->string('coleta_ae')->nullable();
+            $table->string('coleta_ad')->nullable();
+            $table->string('coleta_pe')->nullable();
+            $table->string('coleta_pd')->nullable();
             $table->timestamps();
         });
     }

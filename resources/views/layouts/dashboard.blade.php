@@ -955,7 +955,7 @@
 					<div class="col-sm-12">
 						<p>2019 &copy; Luiz Fernando - 35 997296516  -
 
-      <b>Versão</b> 2.0
+      <b>Versão</b> 2.1
     </p>
 
 

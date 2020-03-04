@@ -61,7 +61,7 @@ class LeiteController extends Controller
      */
     public function create()
     {
-        return view('leite.form_leite_lote');
+        return view('leite.form_leite_lote_novo');
     }
 
     public function leitelote()

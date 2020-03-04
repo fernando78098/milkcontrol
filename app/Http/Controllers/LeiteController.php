@@ -72,7 +72,7 @@ class LeiteController extends Controller
     public function gravaleite(Request $request,leite $leite)
     {
         // aqui passamos os dados do nosso formulario para o validator no primeiro parametro e no segundo algumas regras de validação
-        $validator = Validator::make($request->all(), [
+       /* $validator = Validator::make($request->all(), [
             'vaca.*' => 'nullable|min:3|max:5',
             'leite.*' => 'nullable|required_if:vaca.*,empty|min:3|max:3',
             'lote.*' => 'nullable|required_if:vaca.*,empty|min:1|max:1',
@@ -82,7 +82,7 @@ class LeiteController extends Controller
             return redirect('lançamento_leite_lote')
                         ->withErrors($validator)
                         ->withInput();
-        }
+        } */
       
         
         $turno_manha_inicio = date_format(date_create('04:00'), 'H:i');
@@ -172,15 +172,25 @@ class LeiteController extends Controller
         $dados = $request->all();
         $dadosfiltrado = array_filter($dados['vaca']);
 
+        
+
+        
 
 
 
 
 
 
-        for ($i=0; $i < count($dadosfiltrado) ; $i++) {
 
-            DB::insert("INSERT INTO leites (vaca, turno, lote, leite, data ) values (?, ?, ?, ?, ?)", [$dados['vaca'][$i],$turno,$dados['lote'][$i],$dados['leite'][$i],date('Y-m-d')]);
+        for ($i=0; $i < 24 ; $i++) {
+            if (empty ($dados['vaca'][$i]  ))
+                {                
+                }
+            else
+                {
+                    DB::insert("INSERT INTO leites (vaca, turno, lote, leite, data ) values (?, ?, ?, ?, ?)", [$dados['vaca'][$i],$turno,$dados['lote'][$i],$dados['leite'][$i],date('Y-m-d')]);
+                }
+            
 
         }
 

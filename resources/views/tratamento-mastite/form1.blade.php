@@ -58,7 +58,7 @@
                                                     </div>
                                                     <div class="box-footer">
 
-                                                        <button type="submit" class="btn btn-primary">ENVIAR</button>
+                                                        <button type="submit" class="btn btn-primary">Procurar</button>
 
                                                     </div>
                                             </form>

@@ -110,8 +110,13 @@ class ProcedimentoController extends Controller
                 $vaca = DB::table('procedimentos')->select('vaca','data')->where('vaca', $request['vaca'][$i])->get();
                 if (empty($vaca[0])) 
                 {
-                    $vaca = $request['vaca'][$i] ;    
-                             
+                    $vaca = $request['vaca'][$i] ;  
+                    
+                    $set = array();
+
+                    for ($i=0; $i < $tratamento->min ; $i++) { 
+                        # code...
+                    }
 
                     /*for ($b=0; $b < 3 ; $i++) 
                     { 

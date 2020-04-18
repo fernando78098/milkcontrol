@@ -453,27 +453,19 @@
 					</ul>
 				</li>
                 <li>
-					<a href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr"><div class="pull-left"><i class="zmdi zmdi-google-pages mr-20"></i><span class="right-nav-text">Configuranções</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+					<a href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr"><div class="pull-left"><i class="zmdi zmdi-google-pages mr-20"></i><span class="right-nav-text">Manutenção</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 					<ul id="pages_dr" class="collapse collapse-level-1 two-col-list">
 
 						<li>
-							<a href="javascript:void(0);" data-toggle="collapse" data-target="#auth_dr">Tratamentos<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+							<a href="javascript:void(0);" data-toggle="collapse" data-target="#auth_dr">Maquinas<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 							<ul id="auth_dr" class="collapse collapse-level-2">
 								<li>
-									<a href="{{ action('TratamentoController@create') }}">Cadastrar</a>
+									<a href="{{ action('MaquinaController@create') }}">Cadastrar</a>
 								</li>
 								<li>
-                                    <a href=" {{ action('TratamentoController@index') }} ">Listar</a>
-								</li>
-								<li>
-									<a href="forgot-password.html">Recover Password</a>
-								</li>
-								<li>
-									<a href="reset-password.html">reset Password</a>
-								</li>
-								<li>
-									<a href="locked.html">Lock Screen</a>
-								</li>
+                                    <a href=" {{ action('MaquinaController@index') }} ">Lista</a>
+								</li>								
+								
 							</ul>
 						</li>
 						<li>

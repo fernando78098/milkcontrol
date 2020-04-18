@@ -39,3 +39,5 @@ Route::resource('/tratamentos' , 'TratamentoController' );
 
 Route::resource('/procedimentos' , 'ProcedimentoController' );
 Route::post('/idenfificacao' , 'ProcedimentoController@procurar' )->name('procurando');
+
+Route::resource('/maquinas' , 'MaquinaController' );

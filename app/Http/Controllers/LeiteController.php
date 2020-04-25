@@ -106,6 +106,7 @@ class LeiteController extends Controller
         }
 
 
+        dd($request);
         $dados = $request->all();
         $dadosfiltrado = array_filter($dados['vaca']);
 
@@ -146,6 +147,8 @@ class LeiteController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
+
+        
       
         
         $turno_manha_inicio = date_format(date_create('04:00'), 'H:i');

@@ -14,4 +14,9 @@ class maquina extends Model
         'marca_da_maquina',
         'tratorista',
     ];
+
+    public function ordem_de_servico()
+    {
+        return $this->hasMany('App\Ordem_de_servico');
+    }
 }

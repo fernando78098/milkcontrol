@@ -41,3 +41,7 @@ Route::resource('/procedimentos' , 'ProcedimentoController' );
 Route::post('/idenfificacao' , 'ProcedimentoController@procurar' )->name('procurando');
 
 Route::resource('/maquinas' , 'MaquinaController' );
+
+Route::resource('/OS' , 'OrdemDeServicoController' );
+
+Route::resource('/item_os' , 'ItensDaOsController' );

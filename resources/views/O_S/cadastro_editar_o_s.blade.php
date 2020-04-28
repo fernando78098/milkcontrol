@@ -5,7 +5,7 @@
         <div class="panel panel-default card-view">
             <div class="panel-heading">
                 <div class="pull-left">
-                    <h6 class="panel-title txt-dark">Cadastro de Maquina</h6>
+                    <h6 class="panel-title txt-dark">Abertura de O.S</h6>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -37,36 +37,45 @@
 
                                 @if (isset($editar))
 				                    <!--se tiver manda para essa rota de edição-->
-                                    <form method="post" action=" {{action('MaquinaController@update' , $id)}} ">
+                                    <form method="post" action=" {{action('OrdemDeServicoController@update' , $id)}} ">
                                     <input name="_method" type="hidden" value="PATCH">
 				                @else
 					                <!-- se nao manda para essa rota de cadastro-->
-					                <form action=" {{ action('MaquinaController@store') }} " method="POST" >
+					                <form action=" {{ action('OrdemDeServicoController@store') }} " method="POST" >
 
 				                @endif 
                                 
                                     @csrf
                                     <div class="form-group">
-                                        <label class="control-label mb-10" for="exampleInputuname_1">Nome da Maquina</label>
+                                        <label class="control-label mb-10">Maquina</label>
+                                        <select class="form-control" name="maquina_id">
+                                            @foreach ($objeto_maquina as $item)
+                                                <option value=" {{ $item->id }} " @if( isset($editar) && $editar->nome_da_maquina == "$item->nome_da_maquina") selected @endif> {{ $item->nome_da_maquina }} </option>                                                
+                                            @endforeach                                                                                 
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label mb-10" for="exampleInputuname_1">Data Abertura</label>
                                         <div class="input-group">
-                                            <div class="input-group-addon"><i class=" fa fa-automobile"></i></div>
-                                            <input type="text" class="form-control" id="exampleInputuname_1" name="nome_da_maquina" value="{{ $editar->nome_da_maquina ?? null }}" placeholder="Nome do Maquina" required>
+                                            <div class="input-group-addon"><i class=" fa fa-calendar-o"></i></div>
+                                            <input type="date" class="form-control" id="exampleInputuname_1" name="data_de_abertura" value="{{ $editar->data_de_abertura ?? null }}" placeholder="Nome do Maquina">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label mb-10" for="exampleInputuname_1">Data Fechamento</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class=" fa fa-calendar-o"></i></div>
+                                            <input type="date" class="form-control" id="exampleInputuname_1" name="data_de_fechamento" value="{{ $editar->data_de_fechamento ?? null }}" placeholder="Nome do Maquina">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label mb-10" for="exampleInputEmail_1">Marca da Maquina</label>
+                                        <label class="control-label mb-10" for="exampleInputEmail_1">Descrição do problema</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class=" fa fa-info"></i></div>
-                                            <input type="text" class="form-control" id="exampleInputEmail_1" name="marca_da_maquina" value="{{ $editar->marca_da_maquina ?? null }}" placeholder="Marca" required>
+                                            <textarea  class="form-control" id="exampleInputEmail_1" rows="4" name="descricao" value="{{ $editar->descricao ?? null }}" placeholder="Digite aqui o problema" required></textarea>
                                         </div>
                                     </div>                
-                                    <div class="form-group">
-                                        <label class="control-label mb-10" for="exampleInputpwd_1">Tratorista</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon"><i class="icon-user"></i></div>
-                                            <input type="text" class="form-control" id="exampleInputpwd_1" name="tratorista" value=" {{ $editar->tratorista ?? null }} " placeholder="Nome Tratorista" required>
-                                        </div>
-                                    </div>                                 
+                                                                    
                                     <button type="submit" class="btn btn-success mr-10">Salvar</button>
                                     <button type="submit" class="btn btn-default"><a href="{{ route('home') }}">Cancel</a></button>
                                 </form>

@@ -13,6 +13,8 @@
 	<!-- Data table CSS -->
 	<link href=" {{ asset('vendors/bower_components/datatables/media/css/jquery.dataTables.min.css') }} " rel="stylesheet" type="text/css"/>
 
+	<!-- Bootstrap table CSS -->
+	<link href="{{ asset('vendors/bower_components/bootstrap-table/dist/bootstrap-table.css') }}" rel="stylesheet" type="text/css"/>
 
 
 	<!-- Custom CSS --> 
@@ -469,13 +471,19 @@
 							</ul>
 						</li>
 						<li>
-							<a href="javascript:void(0);" data-toggle="collapse" data-target="#invoice_dr">Invoice<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+							<a href="javascript:void(0);" data-toggle="collapse" data-target="#invoice_dr">Ordem De Serviço<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 							<ul id="invoice_dr" class="collapse collapse-level-2">
 								<li>
-									<a href="invoice.html">Invoice</a>
+									<a href=" {{ action('OrdemDeServicoController@create') }} ">Criar O.S</a>
 								</li>
 								<li>
-									<a href="invoice-archive.html">Invoice Archive</a>
+									<a href=" {{ action('OrdemDeServicoController@index') }} ">O.S abertas</a>
+								</li>
+								<li>
+									<a href="#">O.S fechadas</a>
+								</li>
+								<li>
+									<a href="#">Relatorio</a>
 								</li>
 							</ul>
 						</li>
@@ -971,7 +979,7 @@
     <script src=" {{ asset('vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }} "></script>
 
 	<!-- Data table JavaScript -->
-
+	<script src=" {{ asset('vendors/bower_components/bootstrap-table/dist/bootstrap-table.min.js') }} "></script>
 	<script src="{{ asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
 	<script src="{{ asset('vendors/bower_components/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
@@ -979,8 +987,11 @@
 	<script src="{{ asset('vendors/bower_components/pdfmake/build/pdfmake.min.js') }}"></script>
 	<script src="{{ asset('vendors/bower_components/pdfmake/build/vfs_fonts.js') }}"></script>
     <script src="{{ asset('vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-    <script src=" {{ asset('dist/js/export-table-data.js') }} "></script>
+	<script src="{{ asset('vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+	
+	<script src=" {{ asset('dist/js/export-table-data.js') }} "></script>
+	<!-- Fancy Dropdown JS -->
+	<script src="{{ asset('dist/js/dropdown-bootstrap-extended.js') }}"></script>
 
 	<!-- Slimscroll JavaScript -->
 	<script src=" {{ asset('dist/js/jquery.slimscroll.js') }} "></script>
@@ -1016,6 +1027,8 @@
 	<!-- Init JavaScript -->
 	<script src=" {{ asset('dist/js/init.js') }} "></script>
 	<script src=" {{ asset('dist/js/dashboard-data.js') }} "></script>
+
+	
 </body>
 
 </html>

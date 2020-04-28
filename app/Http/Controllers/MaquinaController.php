@@ -12,9 +12,13 @@ class MaquinaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(maquina $maquina)
     {
-        //
+        // consulta todas maquinas cadastrada
+        $dados = $maquina->all();
+
+        //retorna o front da lista de maquinas e envia todos maquinas cadastradas junto
+        return view('maquinas.lista_maquinas', compact('dados'));
     }
 
     /**
@@ -56,9 +60,10 @@ class MaquinaController extends Controller
      * @param  \App\maquina  $maquina
      * @return \Illuminate\Http\Response
      */
-    public function show(maquina $maquina)
+    public function show($id)
     {
-        //
+        // mostra o front da ficha da maquina e repassa pra viu uma consulta de uma maquina especifica
+        return view('maquinas.show', ['maquina' => Maquina::findOrFail($id)]);
     }
 
     /**
@@ -67,9 +72,12 @@ class MaquinaController extends Controller
      * @param  \App\maquina  $maquina
      * @return \Illuminate\Http\Response
      */
-    public function edit(maquina $maquina)
+    public function edit($id)
     {
-        //
+        $editar = Maquina::find($id);        
+        
+        return view('maquinas.cadastro_editar_maquinas', compact('editar', 'id'));
+       
     }
 
     /**
@@ -79,9 +87,23 @@ class MaquinaController extends Controller
      * @param  \App\maquina  $maquina
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, maquina $maquina)
+    public function update($id,Request $request)
     {
-        //
+        $editar = Maquina::find($id);
+        $editar->nome_da_maquina=$request->get('nome_da_maquina');
+        $editar->marca_da_maquina=$request->get('marca_da_maquina');
+        $editar->tratorista=$request->get('tratorista');
+        $editar->save();
+
+        if($editar)
+        {
+            
+            return view('maquinas.show', ['maquina' => Maquina::findOrFail($id),'mensagem' => " A maquina $request->nome_da_maquina foi editado com sucesso!"]);
+        }
+        else
+        {
+            return view('maquinas.show', ['maquina' => Maquina::findOrFail($id),'mensagem' => "Não foi possivel editar $request->nome_da_maquina!"]);
+        }
     }
 
     /**
@@ -90,8 +112,18 @@ class MaquinaController extends Controller
      * @param  \App\maquina  $maquina
      * @return \Illuminate\Http\Response
      */
-    public function destroy(maquina $maquina)
+    public function destroy($id)
     {
-        //
+        $objeto = Maquina::find($id);
+        $objeto->delete();
+
+        if($objeto)
+        {
+            return redirect()->action('MaquinaController@index');
+        }
+        else
+        {
+            return "não foi possivel excluir essa Maquina!";
+        }
     }
 }

@@ -45,3 +45,4 @@ Route::resource('/maquinas' , 'MaquinaController' );
 Route::resource('/OS' , 'OrdemDeServicoController' );
 
 Route::resource('/item_os' , 'ItensDaOsController' );
+Route::post('/item_os_novo' , 'ItensDaOsController@create' )->name('novodd');

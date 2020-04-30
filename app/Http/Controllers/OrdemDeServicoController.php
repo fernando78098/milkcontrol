@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ordem_de_servico;
 use App\maquina;
+use App\itens_da_os;
 use Illuminate\Http\Request;
 
 class OrdemDeServicoController extends Controller
@@ -62,11 +63,12 @@ class OrdemDeServicoController extends Controller
      * @param  \App\ordem_de_servico  $ordem_de_servico
      * @return \Illuminate\Http\Response
      */
-    public function show($id, ordem_de_servico $ordem_de_servico)
+    public function show($id, ordem_de_servico $ordem_de_servico, itens_da_os $itens_da_os)
     {
+        $intens = $itens_da_os->where('ordem_de_servico_id', "$id")->get();
         $dados = $ordem_de_servico::find($id);
         
-        return view('O_S.show', compact('dados'));
+        return view('O_S.show', compact('dados','intens'));
     }
 
     /**

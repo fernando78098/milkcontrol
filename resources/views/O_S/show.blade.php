@@ -39,24 +39,33 @@
                                                 </thead>												
 												
 												<tbody>
-													<tr>
-														<td>troca de oleo</td>
-														<td>1</td>
-														<td>$100,00</td>
-														<td>$100,00</td>														
-													</tr>
+														@foreach ($intens as $item)
+															<tr>
+																<td> {{ $item->descricao }} </td>
+																<td> {{ $item->quantidade }} </td>
+																<td>$ {{ $item->valor_unitario }} </td>
+																<td>$ {{ $item->valor_total }} </td>
+															</tr>															
+														@endforeach																												
 													
 												</tbody>
 											
 												<tfoot>
 													<tr>
-														<th>descrição</th>
-                                                        <th>quantidade</th>
-                                                        <th>valor Unitario</th>
-                                                        <th>Valor total</th>
+														<th colspan="3">Valor total:</th>
+														<th colspan="1">30,50</th>
+                                                        
 													</tr>
 												</tfoot>
 											</table>
+											<div>
+												<form action=" {{ route('novodd') }} " method="POST">
+													@csrf
+													<input type="hidden" name="id" value=" {{ $dados->id }} ">
+													<button type="submit" class="btn btn-success mr-10">Novo Item</button>
+												</form>
+											</div>
+											
 										</div>
 									</div>	
 								</div>	
